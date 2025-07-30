@@ -1,0 +1,41 @@
+# FastAPI for REST API
+fastapi==0.109.0
+uvicorn==0.27.1
+
+# Data & ML
+pandas==2.1.4
+numpy==1.25.2
+scikit-learn==1.4.2
+xgboost==2.0.3
+matplotlib==3.8.2
+
+# Database
+sqlalchemy==2.0.29
+databases==0.9.0  # Use the latest compatible version
+asyncpg==0.29.0  # If using PostgreSQL
+pymongo==4.6.3
+
+# Environment
+python-dotenv==1.0.1
+
+# Requests for external API calls
+requests==2.31.0
+
+# Knowledge base & AI search (OpenAI or HuggingFace for LLM-powered features)
+openai==1.14.3
+# or for HuggingFace
+# transformers==4.39.3
+
+# Markdown and content parsing for articles/guides
+markdown2==2.4.13
+
+# Testing
+pytest==8.2.0
+httpx==0.27.0
+
+# Optional: For feedback/analytics
+sentry-sdk==2.2.0 
+
+pydantic<2.0.0
+pydantic-settings==0.2.5
+PyYAML==5.4.1
