@@ -1,13 +1,19 @@
 services:
   - type: web
-    name: datswift-backend
+    name: dataswift-backend
     env: python
+    region: singapore  # Closest region for better latency
+    runtime: python  # Explicit declaration (optional but clear)
     buildCommand: |
-      pip install --upgrade pip setuptools wheel
+      python -m pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
     startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
     plan: free
     autoDeploy: true
     envVars:
-      - key: PORT
-        value: 10000
+      - key: MONGODB_URI
+        sync: false  # Secret stored in Render dashboard
+    healthCheckPath: /health
+    buildFilter:
+      paths:
+        - backend/**
