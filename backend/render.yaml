@@ -11,7 +11,7 @@ services:
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10.12   # ✅ Downgraded from 3.13
+        value: 3.8.18   # ✅ Downgraded from 3.13
       - key: MONGODB_URI
         sync: false
     healthCheckPath: /health
