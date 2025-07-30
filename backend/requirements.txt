@@ -1,12 +1,13 @@
-# Build dependencies
-setuptools==68.2.2
-wheel==0.41.2
+# Build dependencies - specific versions for Python 3.9
+setuptools==67.8.0
+wheel==0.40.0
+pip==23.1.2
 
 # FastAPI for REST API
 fastapi==0.109.0
 uvicorn==0.27.1
 
-# Data & ML (stable versions for Python 3.9)
+# Data & ML (compatible versions for Python 3.9)
 pandas==1.5.3
 numpy==1.24.3
 scikit-learn==1.2.2
