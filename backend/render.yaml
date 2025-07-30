@@ -4,18 +4,17 @@ services:
     env: python
     region: singapore
     buildCommand: |
-      pip install --upgrade pip setuptools wheel
+      python -m pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
-    startCommand: uvicorn backend.app:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
     plan: free
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
-        value: 3.8.18
+        value: 3.10.12   # ✅ Downgraded from 3.13
       - key: MONGODB_URI
         sync: false
     healthCheckPath: /health
     buildFilter:
       paths:
         - backend/**
-
