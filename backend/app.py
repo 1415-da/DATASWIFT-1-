@@ -1,6 +1,11 @@
+import os
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+
+# Load environment variables from .env
+load_dotenv()
 
 # Import API routers
 from src.api import data_api, knowledge_api, model_api, user_api, predict_api
@@ -39,5 +44,10 @@ async def root():
 async def health_check():
     return {"status": "healthy", "service": "DataSwift API"}
 
+# Example: Accessing MongoDB URI from environment
+MONGODB_URI = os.getenv("MONGODB_URI")
+
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    # Use PORT from environment if available (for Render), else default to 8000
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port, reload=True)
